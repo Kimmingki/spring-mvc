@@ -85,16 +85,23 @@ public class BasicItemController {
         return "basic/item";
     }
 
-    /**
-     * 상품 등록 로직
-     * @param item 상품 정보
-     * @return
-     */
-    @PostMapping("/add")
+    //@PostMapping("/add")
     public String addItemV4(Item item) {
         itemRepository.save(item);
 
         return "basic/item";
+    }
+
+    /**
+     * 상품 등록 로직
+     * @param item 상품 등록 정보
+     * @return
+     */
+    @PostMapping("/add")
+    public String addItemV5(Item item) {
+        itemRepository.save(item);
+
+        return "redirect:/basic/items/" + item.getId();
     }
 
     /**
